@@ -104,10 +104,10 @@ func CheckAllContainers(cli *client.Client) ([]ContainerInfo, error) {
 			recommendations += fmt.Sprintf("\nContainer %s needs to be relaunched either with lower prvileges or use the --cap-add= flag when running Docker images to prevent priviledge escalation.\n", container.ID[:12])
 		}
 		if hasAdvancedCapabilities {
-			recommendations += fmt.Sprintf("\nContainer %s has advanced capabilities that can pose a security risk: %v. Recommendation: Minimize the use of capabilities and run the container with the least privileges required.\n", container.ID[:12], containerJSON.HostConfig.CapAdd)
+			recommendations += fmt.Sprintf("\nContainer %s has advanced capabilities that can pose a security risk: %v. Minimize the use of capabilities and run the container with the least privileges required.\n", container.ID[:12], containerJSON.HostConfig.CapAdd)
 		}
 		if capabilities != nil {
-			recommendations += fmt.Sprintf("\nContainer %s has capabilities that can pose a security risk: %v. Recommendation: Minimize the use of capabilities and run the container with the least privileges required.\n", container.ID[:12], containerJSON.HostConfig.CapAdd)
+			recommendations += fmt.Sprintf("\nContainer %s has capabilities that can pose a security risk: %v. Minimize the use of capabilities and run the container with the least privileges required.\n", container.ID[:12], containerJSON.HostConfig.CapAdd)
 		}
 
 		if restartPolicy == "0" {
@@ -122,6 +122,8 @@ func CheckAllContainers(cli *client.Client) ([]ContainerInfo, error) {
 			maxProcessesStr = fmt.Sprintf("%d", *maxProcesses)
 		} else {
 			maxProcessesStr = "no limt set"
+			recommendations += fmt.Sprintf("\nConfigure a maximum number of processes to prevent DOS attacks for Container %s \n", container.ID[:12])
+
 		}
 
 		info := ContainerInfo{

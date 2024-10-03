@@ -1,45 +1,115 @@
+Here’s a more professional and polished version of your README:
+
+---
+
 # Container Checker
 
-**Work in Progress**
+**Container Checker** is a robust tool designed to help you identify and manage both privileged and non-privileged Docker containers running on your host system. With an intuitive, web-based interface, it provides comprehensive details about container statuses, security configurations, and tailored recommendations for enhancing security.
 
-Container Checker is a tool that helps you identify privileged and non-privileged containers running on your Docker host. It provides a web-based interface to display information about the containers, including their privileged status, security options, and recommendations for improving security.
+## Table of Contents
 
-## Features
+1. [Installation](#installation)
+2. [Dependencies](#dependencies)
+3. [Usage](#usage)
+4. [Features](#features)
+5. [Video Walkthrough](#video-walkthrough)
+6. [Future Improvements](#future-improvements)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-- Displays a list of all containers running on the Docker host
-- Identifies privileged containers and containers running as root
-- Checks the security options for each container
-- Provides recommendations for improving container security
-- Periodically updates the container information in the web interface
+---
+
+## Installation
+
+Follow these steps to set up and run Container Checker:
+
+1. Clone the repository from GitHub:
+
+    ```bash
+    git clone https://github.com/your-username/container-checker.git
+    cd container-checker
+    go run web/server.go
+    ```
+
+2. Ensure all required dependencies are installed. For more information, refer to the [Dependencies](#dependencies) section below.
+
+3. Build the Container Checker  (optional):
+
+    ```bash
+    go build -o container-checker .
+    ```
+
+4. Start the application(optional):
+
+    ```bash
+    ./container-checker
+    ```
+
+---
+
+## Dependencies
+
+The following dependencies are required for Container Checker:
+
+- [Go](https://golang.org/doc/install) (version 1.16+)
+- [Docker](https://docs.docker.com/get-docker/)
+
+Ensure both are properly installed before running the application.
+
+---
 
 ## Usage
 
-1. Ensure you have Docker installed on your system.
-2. Clone the repository and navigate to the project directory:
-4. Open your web browser and navigate to `http://localhost:8081` to access the Container Checker web interface.
+1. Make sure Docker is installed and running on your machine.
+2. Clone this repository and navigate to the project directory.
+3. Build and run the application as outlined in the [Installation](#installation) section.
+4. Open a web browser and navigate to `http://localhost:8081` to access the Container Checker web interface.
 
-## Architecture
+The web interface provides real-time updates on container statuses and security recommendations.
 
-The Container Checker application consists of the following components:
+---
 
-1. **all-checks.go**: This file contains the `CheckAllContainers` function, which is responsible for fetching information about all the containers running on the Docker host, including their privileged status, security options, and recommendations.
+## Features
 
-2. **server.go**: This file sets up the web server and handles the periodic container checks. It uses the `CheckAllContainers` function from `all-checks.go` to retrieve the container information and passes it to the `index.html` template for rendering.
+- **Container Overview**: Displays a list of all containers currently running on your Docker host.
+- **Privileged Containers**: Identifies containers that are running with elevated privileges or as root.
+- **Security Options**: Provides an in-depth view of each container’s security settings, including AppArmor, seccomp, and capabilities.
+- **Security Recommendations**: Offers actionable advice for improving container security.
+- **Automated Checks**: Periodically refreshes container information in the web interface.
 
-3. **index.html**: This is the HTML template that displays the container information in the web interface.
+---
+
+## Video Walkthrough
+
+Watch this brief video for an overview of the application’s functionality and a step-by-step guide to using it:
+
+[![Watch the video](https://img.youtube.com/vi/e7a2cd1e98804e2a87932205a3ce92bf/0.jpg)](https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf?sid=0f49c826-9acd-4367-80e2-19ec0617cf62)
+
+---
 
 ## Future Improvements
 
-- Implement pagination or batching to handle a large number of containers efficiently
-- Add support for filtering and sorting the container list
-- Provide more detailed security recommendations based on the container's configuration
-- Integrate with a security monitoring or alerting system
-- Add support for exporting the container information to a file or external system
+Here are some planned enhancements for future releases:
+
+- **Pagination and Batching**: Efficient handling of a large number of containers.
+- **Filtering & Sorting**: More advanced options for interacting with container data.
+- **Detailed Security Recommendations**: Enhanced suggestions based on container configurations.
+- **Monitoring & Alerts**: Integrating with external security monitoring and alerting tools.
+- **Data Exporting**: Support for exporting container information to files or external systems.
+
+---
 
 ## Contributing
 
-This project is currently a work in progress. If you'd like to contribute, please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-username/container-checker).
+We welcome contributions! If you would like to contribute to the project, feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-username/container-checker).
+
+Before contributing, please review our [Contributing Guidelines](CONTRIBUTING.md).
+
+---
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+

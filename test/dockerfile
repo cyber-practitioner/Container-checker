@@ -1,0 +1,23 @@
+FROM alpine:latest
+
+# Run the container as root
+USER root
+
+# Install some packages
+RUN apk add --no-cache bash
+
+# Set the container to run in privileged mode
+RUN --privileged=true
+# Disable the Seccomp profile
+RUN --Seccomp none
+
+# Allow all capabilities
+RUN --CAP_ADD CAP_NET_ADMIN
+
+# Set a read-only root filesystem
+RUN mkdir /app && touch /app/test.txt
+VOLUME /app
+RUN chmod 555 /app
+
+# Run the container with a high number of processes
+CMD ["bash", "-c", "while true; do sleep 1; done"]
