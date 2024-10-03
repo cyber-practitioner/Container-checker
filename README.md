@@ -87,7 +87,7 @@ Watch this brief video for an overview of the application’s functionality and 
 
 <div>
     <a href="https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf">
-      <p>Visual Studio Code - seccomp.json - Go - Visual Studio Code - 3 October 2024 - Watch Video</p>
+      <p>Visual Studio Code -- 3 October 2024 - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e7a2cd1e98804e2a87932205a3ce92bf-97361876b0bdc6dd-full-play.gif">
