@@ -83,7 +83,7 @@ The web interface provides real-time updates on container statuses and security 
 
 Watch this brief video for an overview of the application’s functionality and a step-by-step guide to using it:
 
-[![Watch the video]](https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf?sid=0f49c826-9acd-4367-80e2-19ec0617cf62)
+[![Watch the video]](https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf?sid=2d2ef7a2-c0cb-42f6-a906-fd4bdd6c6b39)
 
 ---
 
