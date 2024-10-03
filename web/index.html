@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Container Checker</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 500;
+        }
+
+        .critical {
+            color: #E53935;
+            font-weight: 500;
+        }
+
+        .warning {
+            color: #FF9800;
+            font-weight: 500;
+        }
+
+        .container-name {
+            font-weight: 500;
+        }
+
+        .container-id {
+            font-family: 'Courier New', monospace;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Container Checker</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Container Name</th>
+                <th>Container ID</th>
+                <th>Running as Root</th>
+                <th>Privileged Container</th>
+                <th>Read-only Root Filesystem</th>
+                <th>Container Status</th>
+                <th>Security Options</th>
+                <th>Capabilities</th>
+                <th>Restart Policy</th>
+                <th>Max Processes allowed</th>
+                <th>Recommendations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range . }}
+            <tr>
+                <td class="container-name">{{ .ContainerName }}</td>
+                <td class="container-id">{{ .ID }}</td>
+                <td>{{ .IsRunningAsRoot }}</td>
+                <td>{{ .PrivilegedContainer }}</td>
+                <td>{{ .ReadOnlyRootFilesystem }}</td>
+                <td>{{ .PrivilegedContainerStatus }}</td>
+                <td>{{ range .SecurityOptions }}{{ . }}<br>{{ end }}</td>
+                <td>{{ .AdvancedCapabilities }}<br></td>
+                <td>{{ .RestartPolicy }}</td>
+                <td>{{ .MaxProcesses }}</td>
+                <td>
+                    <span class="{{ if .Recommendations }}critical{{ else }}warning{{ end }}">
+                        <ul>
+                            {{ range $index, $line := (split .Recommendations ". ") }}
+                                {{ if ne $line "" }}<li>{{ $line }}.</li>{{ end }}
+                            {{ end }}
+                        </ul>
+                    </span>
+                </td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</body>
+</html>
