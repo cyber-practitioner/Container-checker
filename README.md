@@ -83,7 +83,7 @@ The web interface provides real-time updates on container statuses and security 
 
 Watch this brief video for an overview of the application’s functionality and a step-by-step guide to using it:
 
-[![Watch the video](https://img.youtube.com/vi/e7a2cd1e98804e2a87932205a3ce92bf/0.jpg)](https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf?sid=0f49c826-9acd-4367-80e2-19ec0617cf62)
+[![Watch the video]](https://www.loom.com/share/e7a2cd1e98804e2a87932205a3ce92bf?sid=0f49c826-9acd-4367-80e2-19ec0617cf62)
 
 ---
 
@@ -101,7 +101,7 @@ Here are some planned enhancements for future releases:
 
 ## Contributing
 
-We welcome contributions! If you would like to contribute to the project, feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-username/container-checker).
+We welcome contributions! If you would like to contribute to the project, feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/cyber-practitioner/container-checker).
 
 Before contributing, please review our [Contributing Guidelines](CONTRIBUTING.md).
 
